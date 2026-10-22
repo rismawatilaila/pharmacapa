@@ -3,6 +3,15 @@
 > **Aplikasi AI Industri Farmasi untuk Manajemen Penyimpangan Mutu (Batch Deviation), Analisis Akar Masalah (6M Ishikawa & 5-Whys), dan Penyusunan Tindakan Korektif & Preventif (CAPA)**  
 > **Kepatuhan Regulasi:** Pedoman CPOB 2018/2024 (BPOM RI) • cGMP FDA 21 CFR Part 211.192 • ICH Q9 (Quality Risk Management) • ICH Q10 (Pharmaceutical Quality System).
 
+### 🌐 Akses Publik Resmi (Tersedia untuk Komputer & Handphone Operator):
+* 🌐 **Web Cockpit Utama (GitHub Pages):** [https://rismawatilaila.github.io/pharmacapa/](https://rismawatilaila.github.io/pharmacapa/)
+* ⚡ **Streamlit Cloud App:** [https://pharmacapa.streamlit.app/](https://pharmacapa.streamlit.app/)
+* 💻 **Repositori GitHub:** [https://github.com/rismawatilaila/pharmacapa](https://github.com/rismawatilaila/pharmacapa)
+
+### 📚 Dokumen Tugas & Evaluasi Akademik (Prof. Arry):
+* 📘 **[Logbook Pengembangan Proyek](file:///Users/rismawatilaila/Tugas%20AI%20Prof%20Arry/LOGBOOK_PENGEMBANGAN.md):** Analisis masalah lapangan sistem kertas manual, tahapan harian, penerapan Pharma 4.0, dan kepatuhan regulasi.
+* 📊 **[Slide Presentasi Lengkap (12 Slide)](file:///Users/rismawatilaila/Tugas%20AI%20Prof%20Arry/SLIDE_PRESENTASI_PHARMACAPA.md):** Format slide eksekutif lengkap dengan narasi pembicara (*speaker script*) per slide.
+
 ---
 
 ## 📌 1. Latar Belakang & Masalah Industri Farmasi
