@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Tutorial — PharmaCAPA AI Streamlit Copilot</title>
+    <title>Video Tutorial & Slide Presentasi — PharmaCAPA AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
         }
 
@@ -71,7 +71,7 @@
         .subtitle {
             font-size: 14px;
             color: #e0f2fe;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .meta-strip {
@@ -82,7 +82,7 @@
             color: var(--gold);
             font-weight: 600;
             border-top: 1px solid rgba(56, 189, 248, 0.3);
-            padding-top: 10px;
+            padding-top: 12px;
         }
 
         .meta-strip span {
@@ -91,7 +91,52 @@
             gap: 6px;
         }
 
-        /* Main Grid: Video Player + Script */
+        /* Navigation Tabs for Media View */
+        .view-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #112a47;
+            color: #cbd5e1;
+            border: 1.5px solid var(--card-border);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            background: #1e3a5f;
+            color: #ffffff;
+            border-color: var(--cyan);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff;
+            border-color: var(--cyan);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+        }
+
+        /* Content Sections */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Grid for Video + Script */
         .content-grid {
             display: grid;
             grid-template-columns: 1.25fr 1fr;
@@ -99,21 +144,19 @@
             margin-bottom: 24px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
             .content-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Video Card */
-        .video-card {
+        /* Cards */
+        .card {
             background: var(--card-bg);
             border: 1.5px solid var(--card-border);
             border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
         }
 
         .card-header {
@@ -129,61 +172,48 @@
             font-size: 15px;
             font-weight: 700;
             color: var(--cyan);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
+        /* Video Player Wrapper */
         .video-wrapper {
             position: relative;
             background: #000000;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 400px;
+            min-height: 440px;
             overflow: hidden;
         }
 
         .video-wrapper img {
             width: 100%;
             height: auto;
-            max-height: 520px;
+            max-height: 540px;
             object-fit: contain;
             display: block;
         }
 
-        .video-info {
-            padding: 14px 18px;
+        .card-info {
+            padding: 12px 18px;
             background: #091a2e;
             font-size: 12px;
             color: var(--text-muted);
             border-top: 1px solid rgba(255,255,255,0.06);
             display: flex;
             justify-content: space-between;
-        }
-
-        /* Script & Narration Card */
-        .script-card {
-            background: var(--card-bg);
-            border: 1.5px solid var(--card-border);
-            border-radius: 14px;
-            padding: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .script-card h3 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--cyan);
-            margin-bottom: 12px;
-            display: flex;
             align-items: center;
+            flex-wrap: wrap;
             gap: 8px;
         }
 
+        /* Script & Narration List */
         .steps-container {
             overflow-y: auto;
-            max-height: 520px;
-            padding-right: 6px;
+            max-height: 540px;
+            padding: 16px;
         }
 
         .step-item {
@@ -240,11 +270,27 @@
             border-radius: 0 6px 6px 0;
         }
 
-        /* Buttons & Footer */
+        /* PDF Viewer Container */
+        .pdf-viewer-container {
+            background: #000000;
+            border-radius: 0 0 14px 14px;
+            overflow: hidden;
+            height: 650px;
+            position: relative;
+        }
+
+        .pdf-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Action Buttons */
         .btn-group {
             display: flex;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 24px;
             flex-wrap: wrap;
         }
 
@@ -276,127 +322,230 @@
 
         .btn-secondary:hover {
             background: #334155;
+            border-color: var(--cyan);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            border-color: var(--gold);
+        }
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- Header Card -->
         <div class="header-card">
-            <span class="badge">✚ VIDEO TUTORIAL & PANDUAN PENGGUNAAN RESMI</span>
-            <h1 class="title">Panduan Pengoperasian PharmaCAPA AI Streamlit Copilot</h1>
-            <p class="subtitle">Demonstrasi alur kerja lengkap: dari pelaporan deviasi bets, kalkulasi kuantitatif RPN (ICH Q9), analisis akar masalah 6M Ishikawa & 5-Whys, hingga ekspor dokumen CPOB.</p>
+            <span class="badge">✚ MEDIA PRESENTASI & PANDUAN PENGOPERASIAN SISTEM</span>
+            <h1 class="title">PharmaCAPA AI — Operator &amp; QA Deviation Copilot</h1>
+            <p class="subtitle">Platform terpadu untuk menyaksikan demonstrasi rekaman interaktif website Streamlit, menelaah slide presentasi resmi 18 slide, serta membaca panduan naskah suara evaluasi akademik.</p>
             <div class="meta-strip">
                 <span>🎓 <b>Mahasiswa:</b> Rismawati Laila Qodariah (NIM: 2506714066)</span>
                 <span>🏛️ <b>Institusi:</b> Pascasarjana Fakultas Farmasi Universitas Indonesia</span>
                 <span>👨‍🏫 <b>Dosen Pengampu:</b> Prof. Dr. Arry Yanuar, M.Si., Apt.</span>
-                <span>📅 <b>Tahun:</b> 2026</span>
+                <span>📚 <b>Mata Kuliah:</b> Aplikasi AI dalam Industri Farmasi (2026)</span>
             </div>
         </div>
 
-        <!-- Content Grid: Video Recording + Script -->
-        <div class="content-grid">
-            <!-- Left: Video Player Box -->
-            <div class="video-card">
+        <!-- View Switcher Tabs -->
+        <div class="view-tabs">
+            <button class="tab-btn active" onclick="switchTab('tab-video')">
+                🎬 Rekaman Video Walkthrough (533 Frames)
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-slides')">
+                📊 Slide Presentasi Resmi (18 Slide PDF)
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-both')">
+                📑 Tampilan Berdampingan (Video + Slide)
+            </button>
+        </div>
+
+        <!-- TAB 1: VIDEO WALKTHROUGH + SCRIPT (DEFAULT) -->
+        <div id="tab-video" class="tab-content active">
+            <div class="content-grid">
+                <!-- Video Player Box -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>🎬 Rekaman Interaktif Aplikasi Streamlit (533 Frames)</h3>
+                        <span style="font-size: 11px; color: var(--gold); font-weight: 600;">Format: Animated WebP</span>
+                    </div>
+                    <div class="video-wrapper">
+                        <img src="PharmaCAPA_AI_Video_Tutorial.webp" alt="Video Rekaman Tutorial PharmaCAPA AI Streamlit">
+                    </div>
+                    <div class="card-info">
+                        <span><b>Resolusi:</b> Full Desktop / Mobile Viewport (533 Frames)</span>
+                        <span><b>Live App:</b> <a href="https://pharmacapa.streamlit.app/" target="_blank" style="color: var(--cyan); text-decoration: none;">pharmacapa.streamlit.app</a></span>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Script Box -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>🎙️ Naskah Narasi Suara (Voiceover Script)</h3>
+                        <span style="font-size: 11px; color: var(--cyan); font-weight: 600;">Durasi: ~3 Menit</span>
+                    </div>
+                    <div class="steps-container">
+                        <!-- Step 1 -->
+                        <div class="step-item">
+                            <div class="step-header">
+                                <span class="step-title">1. Pembukaan & Dashboard Utama</span>
+                                <span class="step-time">00:00 - 00:20</span>
+                            </div>
+                            <div class="step-body">Membuka website <code>https://pharmacapa.streamlit.app/</code>. Memperkenalkan diri, institusi Pascasarjana FF UI, dan dosen pengampu Prof. Dr. Arry Yanuar, M.Si., Apt.</div>
+                            <div class="step-script">"Selamat datang di PharmaCAPA AI. Sistem ini mengintegrasikan kepatuhan BPOM CPOB 2018/2024 dan ICH Q9/Q10 dengan pilar Pharma 4.0 untuk memandu operator dan QA dalam menangani deviasi bets secara cepat dan objektif."</div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="step-item">
+                            <div class="step-header">
+                                <span class="step-title">2. Pemilihan Kasus & Kalkulasi RPN</span>
+                                <span class="step-time">00:20 - 00:45</span>
+                            </div>
+                            <div class="step-body">Pilih preset kasus <code>Uji Disolusi OOS — Paracetamol 500mg</code>. Sistem seketika menghitung RPN = 12 (MAJOR) dan menetapkan disposisi Karantina.</div>
+                            <div class="step-script">"Di sini operator memilih kasus riil Disolusi OOS Paracetamol. Sistem langsung menghitung RPN kuantitatif sebesar 12, mengklasifikasikan insiden sebagai MAJOR, dan menetapkan disposisi Karantina formal CPOB."</div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="step-item">
+                            <div class="step-header">
+                                <span class="step-title">3. Tab 1: Formulir Input Operator</span>
+                                <span class="step-time">00:45 - 01:10</span>
+                            </div>
+                            <div class="step-body">Meninjau data formulir cepat: Ruangan, Lini Solid Non-Steril, dan parameter kritis CPP (Tekanan kompresi 24.8 kN melampaui batas target 18-20 kN).</div>
+                            <div class="step-script">"Pada Tab 1, formulir dirancang minimalis dan mobile-friendly bagi operator di ruang produksi. Parameter kritis kompresi 24.8 kN tercatat secara digital dan terhubung ke engine AI."</div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="step-item">
+                            <div class="step-header">
+                                <span class="step-title">4. Tab 2: Diagram Tulang Ikan 6M</span>
+                                <span class="step-time">01:10 - 01:40</span>
+                            </div>
+                            <div class="step-body">Membedah penyebab ke dalam 6 cabang (Man, Machine, Material, Method, Measurement, Milieu). Sistem menandai akar masalah pada sensor hidrolik mesin.</div>
+                            <div class="step-script">"Pada Tab 2, AI menyusun Diagram Ishikawa 6M seketika. Terlihat bahwa pada cabang Machine, sistem menandai akar masalah mekanik berupa drift kalibrasi sensor hidrolik sebesar +5.2 kN."</div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="step-item">
+                            <div class="step-header">
+                                <span class="step-title">5. Tab 3: Analisis Mendalam 5-Whys</span>
+                                <span class="step-time">01:40 - 02:05</span>
+                            </div>
+                            <div class="step-body">Menelusuri 5 jenjang kausalitas hingga ke akar masalah sistemik: alarm over-force HMI dinonaktifkan dan SOP belum memuat checklist verifikasi sensor.</div>
+                            <div class="step-script">"Pada Tab 3, metode 5-Whys menemukan akar masalah sistemik sejati: alarm HMI dinonaktifkan sementara dan SOP pra-produksi belum memuat checklist sensor. Ini menghentikan budaya menyalahkan operator."</div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="step-item">
+                            <div class="step-header">
+                                <span class="step-title">6. Tab 4: Rencana CAPA & Review Efektivitas</span>
+                                <span class="step-time">02:05 - 02:30</span>
+                            </div>
+                            <div class="step-body">Tabel Corrective Action (CA) dan Preventive Action (PA) berstandar ICH Q10 lengkap dengan PIC, batas waktu, dan tinjauan efektivitas pada 5 bets berikutnya.</div>
+                            <div class="step-script">"Pada Tab 4, sistem menyusun tabel CAPA lengkap dengan PIC dan target tanggal penyelesaian, serta kewajiban review efektivitas pada 5 bets berikutnya sesuai mandat ICH Q10."</div>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="step-item">
+                            <div class="step-header">
+                                <span class="step-title">7. Tab 5: Ekspor Dokumen Resmi CPOB</span>
+                                <span class="step-time">02:30 - 03:00</span>
+                            </div>
+                            <div class="step-body">Formulir investigasi resmi No. SOP-QA-042 siap diekspor dalam format Microsoft Word (.doc) atau dicetak ke PDF A4 siap audit BPOM.</div>
+                            <div class="step-script">"Terakhir pada Tab 5, seluruh hasil investigasi dapat diunduh ke Word (.doc) atau dicetak ke PDF A4 yang 100% siap diserahkan saat inspeksi BPOM. Terima kasih kepada dosen pengampu kami Prof. Dr. Arry Yanuar."</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: SLIDE PRESENTASI RESMI (18 SLIDE EMBEDDED PDF) -->
+        <div id="tab-slides" class="tab-content">
+            <div class="card">
                 <div class="card-header">
-                    <h3>🎬 Rekaman Interaktif Aplikasi (533 Frames)</h3>
-                    <span style="font-size: 11px; color: var(--gold); font-weight: 600;">Format: Animated WebP</span>
+                    <h3>📊 Slide Presentasi Resmi (18 Slide Lengkap — Fakultas Farmasi UI)</h3>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <span style="font-size: 11px; color: var(--gold); font-weight: 600;">18 Halaman Slide PDF</span>
+                        <a href="PharmaCAPA_AI_Presentasi.pdf" download class="btn btn-gold" style="padding: 4px 12px; font-size: 11px;">
+                            📥 Unduh PDF
+                        </a>
+                    </div>
                 </div>
-                <div class="video-wrapper">
-                    <!-- Embedded Animated WebP Video Tutorial -->
-                    <img src="PharmaCAPA_AI_Video_Tutorial.webp" alt="Video Rekaman Tutorial PharmaCAPA AI Streamlit" id="tutorialPlayer">
+                <!-- Interactive PDF Embedder -->
+                <div class="pdf-viewer-container">
+                    <iframe src="PharmaCAPA_AI_Presentasi.pdf" class="pdf-iframe" title="Slide Presentasi PharmaCAPA AI (18 Slide)">
+                        <p style="padding: 20px; color: #ffffff;">
+                            Peramban Anda tidak mendukung tampilan PDF langsung. Silakan 
+                            <a href="PharmaCAPA_AI_Presentasi.pdf" style="color: var(--cyan);">klik di sini untuk mengunduh slide presentasi PDF</a>.
+                        </p>
+                    </iframe>
                 </div>
-                <div class="video-info">
-                    <span><b>Resolusi:</b> Full Desktop / Mobile Viewport</span>
-                    <span><b>Aplikasi:</b> <a href="https://pharmacapa.streamlit.app/" target="_blank" style="color: var(--cyan); text-decoration: none;">pharmacapa.streamlit.app</a></span>
+                <div class="card-info">
+                    <span><b>Judul Presentasi:</b> PharmaCAPA AI — Operator &amp; QA Deviation Copilot (18 Slide Lengkap)</span>
+                    <span><b>Pembuat:</b> Rismawati Laila Qodariah (NIM: 2506714066) · FF UI</span>
                 </div>
             </div>
+        </div>
 
-            <!-- Right: Timestamped Step-by-Step Script -->
-            <div class="script-card">
-                <h3>🎙️ Naskah Narasi & Alur Pengoperasian (Voiceover Script)</h3>
-                <div class="steps-container">
-                    <!-- Step 1 -->
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-title">1. Akses Website & Hero Dashboard</span>
-                            <span class="step-time">00:00 - 00:15</span>
-                        </div>
-                        <div class="step-body">Buka tautan <code>https://pharmacapa.streamlit.app/</code> di peramban. Halaman langsung memuat judul berkontras tinggi dan ringkasan kepatuhan BPOM CPOB 2018/2024 & ICH Q9/Q10.</div>
-                        <div class="step-script">"Selamat datang di PharmaCAPA AI. Pada tampilan awal, operator lini dan tim QA disajikan ringkasan status deviasi, nilai RPN kuantitatif, klasifikasi dampak mutu, dan disposisi bets formal."</div>
+        <!-- TAB 3: SPLIT VIEW (VIDEO + SLIDES SIDE BY SIDE) -->
+        <div id="tab-both" class="tab-content">
+            <div class="content-grid" style="grid-template-columns: 1fr 1fr;">
+                <!-- Left: Video Player -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>🎬 Video Walkthrough (533 Frames)</h3>
+                        <span style="font-size: 11px; color: var(--gold); font-weight: 600;">Streamlit App</span>
                     </div>
-
-                    <!-- Step 2 -->
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-title">2. Pemilihan Kasus Deviasi / Input Baru</span>
-                            <span class="step-time">00:15 - 00:35</span>
-                        </div>
-                        <div class="step-body">Pilih salah satu dari 4 preset kasus riil farmasi melalui dropdown (misal: Uji Disolusi OOS Paracetamol 500mg). Kartu telemetri seketika menampilkan No. Deviasi DEV-2026-0842, RPN 12 (MAJOR), dan status Karantina.</div>
-                        <div class="step-script">"Di sini operator dapat memilih kasus simulasi riil seperti Disolusi OOS Paracetamol atau menginput deviasi baru. Sistem langsung menghitung RPN sebesar 12 dan mengklasifikasikannya sebagai MAJOR."</div>
+                    <div class="video-wrapper" style="min-height: 550px;">
+                        <img src="PharmaCAPA_AI_Video_Tutorial.webp" alt="Video Walkthrough Streamlit">
                     </div>
+                </div>
 
-                    <!-- Step 3 -->
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-title">3. Tab 1: Formulir Input Cepat Operator</span>
-                            <span class="step-time">00:35 - 00:55</span>
-                        </div>
-                        <div class="step-body">Buka Tab 1 untuk melihat input cepat operator shift: Nama Produk, Tahapan Proses, Lini Produksi, Deskripsi Kejadian Faktual, serta parameter telemetri kritis (CPP/CQA) seperti suhu dan tekanan kompresi.</div>
-                        <div class="step-script">"Pada Tab 1, formulir dirancang minimalis dan efisien untuk operator di ruang bersih. Parameter kritis seperti tekanan kompresi 24.8 kN tercatat secara digital dan terhubung ke engine AI."</div>
+                <!-- Right: Embedded PDF Presentation -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📊 Slide Presentasi (18 Slide)</h3>
+                        <a href="PharmaCAPA_AI_Presentasi.pdf" target="_blank" style="color: var(--cyan); font-size: 11.5px; text-decoration: none;">Buka Tab Baru ↗</a>
                     </div>
-
-                    <!-- Step 4 -->
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-title">4. Tab 2: Diagram Tulang Ikan (Ishikawa 6M)</span>
-                            <span class="step-time">00:55 - 01:25</span>
-                        </div>
-                        <div class="step-body">Buka Tab 2. Sistem secara otomatis memetakan potensi akar masalah ke dalam 6 cabang CPOB: Man, Machine, Material, Method, Measurement, dan Milieu, serta menandai akar masalah mekanik (sensor drift).</div>
-                        <div class="step-script">"Pada Tab 2, AI menyusun Diagram Ishikawa 6M secara instan. Terlihat bahwa pada cabang Machine, sistem menandai akar masalah berupa drift sensor hidrolik sebesar +5.2 kN."</div>
-                    </div>
-
-                    <!-- Step 5 -->
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-title">5. Tab 3: Analisis Mendalam Metode 5-Whys</span>
-                            <span class="step-time">01:25 - 01:50</span>
-                        </div>
-                        <div class="step-body">Buka Tab 3. AI menelusuri 5 tingkat kausalitas secara berjenjang hingga menemukan akar masalah sistemik: alarm over-force dinonaktifkan sementara dan SOP pra-produksi belum memuat checklist verifikasi sensor.</div>
-                        <div class="step-script">"Pada Tab 3, metode 5-Whys membimbing kita menemukan akar masalah sistemik sejati, menghentikan kebiasaan menyalahkan operator dan membongkar kelemahan checklist SOP."</div>
-                    </div>
-
-                    <!-- Step 6 -->
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-title">6. Tab 4: Sintesis Rencana CAPA Resmi</span>
-                            <span class="step-time">01:50 - 02:15</span>
-                        </div>
-                        <div class="step-body">Buka Tab 4. Ditampilkan tabel Tindakan Korektif (CA) dan Tindakan Preventif (PA) lengkap dengan penanggung jawab (PIC), batas waktu (Target Date), serta tinjauan efektivitas 30 hari.</div>
-                        <div class="step-script">"Pada Tab 4, sistem menyusun tabel CAPA lengkap dengan PIC dan target penyelesaian, serta kewajiban review efektivitas pada 5 bets berikutnya sesuai mandat ICH Q10."</div>
-                    </div>
-
-                    <!-- Step 7 -->
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-title">7. Tab 5: Ekspor Dokumen Resmi CPOB (Word & PDF)</span>
-                            <span class="step-time">02:15 - 02:45</span>
-                        </div>
-                        <div class="step-body">Buka Tab 5. Formulir investigasi formal BPOM CPOB ditampilkan lengkap. Gunakan dropdown untuk memilih format dokumen Microsoft Word (.doc) atau cetak langsung ke PDF A4 siap audit.</div>
-                        <div class="step-script">"Terakhir pada Tab 5, seluruh hasil investigasi dapat diunduh dalam format Microsoft Word (.doc) atau dicetak ke PDF A4 yang 100% siap diserahkan saat inspeksi BPOM."</div>
+                    <div class="pdf-viewer-container" style="height: 550px;">
+                        <iframe src="PharmaCAPA_AI_Presentasi.pdf" class="pdf-iframe" title="Slide Presentasi"></iframe>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Action Links -->
+        <!-- Action Links & Downloads -->
         <div class="btn-group">
+            <a href="PharmaCAPA_AI_Presentasi.pdf" download class="btn btn-gold">📊 Unduh Slide Presentasi Resmi (.pdf)</a>
+            <a href="PharmaCAPA_AI_Presentasi.pptx" download class="btn btn-secondary">📑 Unduh Slide Presentasi (.pptx)</a>
+            <a href="PharmaCAPA_AI_Logbook_Pengembangan.pdf" download class="btn btn-secondary">📘 Unduh Logbook Pengembangan (.pdf)</a>
             <a href="https://pharmacapa.streamlit.app/" target="_blank" class="btn">⚡ Buka Website Streamlit Live</a>
-            <a href="https://rismawatilaila.github.io/pharmacapa/" target="_blank" class="btn">🌐 Buka Web Cockpit (GitHub Pages)</a>
-            <a href="PharmaCAPA_AI_Presentasi.pptx" class="btn btn-secondary">📊 Unduh Slide Presentasi (.pptx)</a>
-            <a href="PharmaCAPA_AI_Logbook_Pengembangan.pdf" class="btn btn-secondary">📘 Unduh Logbook Pengembangan (.pdf)</a>
+            <a href="https://rismawatilaila.github.io/pharmacapa/" target="_blank" class="btn btn-secondary">🌐 Web Cockpit (GitHub Pages)</a>
             <a href="https://github.com/rismawatilaila/pharmacapa" target="_blank" class="btn btn-secondary">💻 Repositori GitHub</a>
         </div>
     </div>
+
+    <!-- Script for Tab Switching -->
+    <script>
+        function switchTab(tabId) {
+            // Remove active from all tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // Activate chosen tab
+            if (tabId === 'tab-video') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('tab-video').classList.add('active');
+            } else if (tabId === 'tab-slides') {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('tab-slides').classList.add('active');
+            } else if (tabId === 'tab-both') {
+                document.querySelectorAll('.tab-btn')[2].classList.add('active');
+                document.getElementById('tab-both').classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
